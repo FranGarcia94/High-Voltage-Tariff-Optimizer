@@ -23,14 +23,14 @@ Pcp: Power contracted in period j
 
 This is where the key to the problem lies, because there must be a compromise between the penalties for excess power and the price of each contracting period and this is what the algorithm solves.
 
-# Input data
+## Input data
 A file in Excel or CSV format is needed where the distribution of the data is as follows:
 
 <img width="329" alt="image" src="https://user-images.githubusercontent.com/107102754/174418142-d4de3c7c-1181-452e-8d30-d552250a67e1.png">
 
 Where 'Cuarto' refers to every 15 min within each hour, since the penalties will be applied in these periods of time.
 
-# Result
+## Result
 
 <img width="419" alt="image" src="https://user-images.githubusercontent.com/107102754/174418394-276aa16a-2b67-456c-a315-11bcb1460b55.png">
 
