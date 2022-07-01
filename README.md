@@ -1,5 +1,5 @@
 # High-Voltage-Tariff-Optimizer
-High Voltage Tariff Optimizer using a combinatorial algorithm.
+High Voltage Tariff Optimizer using a combinatorial algorithm[^1].
 
 In this case, the high voltage tariffs of Spain have been studied, where there are 6 possible powers to be contracted. The calculation of the power term is apparently simple.
 
@@ -47,5 +47,4 @@ Finally, this last graph shows the power demanded for each quarter of an hour of
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/107102754/174418731-14543523-93b0-4828-8390-dafc59cfa512.png">
 
 
-
-
+[^1]: In the repository code you can find the following command `% enable %` . This means that you have to enable the line where you find it. To do this, simply remove the `%` at the beginning of the line.
