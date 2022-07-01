@@ -1,4 +1,4 @@
-%% Establecer Periodos (discrimina Fines de Semana)
+%- Establecer Periodos (discrimina Fines de Semana)
 periodo=zeros(size(t2,1),1);
 
 i=1;
