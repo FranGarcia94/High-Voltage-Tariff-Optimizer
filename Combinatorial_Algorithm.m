@@ -1,4 +1,4 @@
-%% Optimizador Tarifas Alta Tensión
+%- Optimizador Tarifas Alta Tensión
 
 tic
 h=1;
@@ -25,7 +25,7 @@ while(h<=10)
         precio_potencia=pot_contratada.*pc_potencia;
 
 
-        %% Cálculo del término dentro de la raiz de la fórmula de excesos de potencia
+        %- Cálculo del término dentro de la raiz de la fórmula de excesos de potencia
         matriz_0=zeros(6,12);
 
         i=1;
@@ -34,12 +34,12 @@ while(h<=10)
 
                 d=(t2.Potencia(i)-pot_contratada(periodo(i)))^2;
 
-                matriz_0(periodo(i),t2.Fecha(i).Month)=matriz_0(periodo(i),t2.Fecha(i).Month)+d;
+                %matriz_0(periodo(i),t2.Fecha(i).Month)=matriz_0(periodo(i),t2.Fecha(i).Month)+d; % enable %
             end
             i=i+1;
         end
 
-        %% Cálculo del Factor de exceso de Potencia €
+        %- Cálculo del Factor de exceso de Potencia €
         Aei=sqrt(matriz_0);
         kp=[1 1 0.5427 0.4103 0.0264 0.0264];
         tep=1.406400;
@@ -47,7 +47,7 @@ while(h<=10)
 
         for i=1:6
             for j=1:12
-                Fep(i,j)=Aei(i,j)*tep*kp(i);
+                %Fep(i,j)=Aei(i,j)*tep*kp(i); % enable %
             end
         end
 
@@ -76,9 +76,9 @@ while(h<=10)
         end
 
         for i=1:6
-            vec_precio(i,k)=pot_contratada(i)*pc_potencia(i);
-            vec_excesos(i,k)=exceso_periodos(i);
-            vec_coste(i,k)=vec_excesos(i,k)+vec_precio(i,k);
+            %vec_precio(i,k)=pot_contratada(i)*pc_potencia(i); % enable %
+            %vec_excesos(i,k)=exceso_periodos(i); % enable %
+            %vec_coste(i,k)=vec_excesos(i,k)+vec_precio(i,k); % enable %
         end
 
         if k>1 && k<300
