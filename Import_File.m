@@ -18,7 +18,7 @@ formatSpec = '%s%s%s%s%s%[^\n\r]';
 %- Open the text file.
 fileID = fopen(filename,'r');
 
-%% Read columns of data according to the format.
+%- Read columns of data according to the format.
 % This call is based on the structure of the file used to generate this
 % code. If an error occurs for a different file, try regenerating the code
 % from the Import Tool.
@@ -31,7 +31,7 @@ fclose(fileID);
 % Replace non-numeric text with NaN.
 raw = repmat({''},length(dataArray{1}),length(dataArray)-1);
 for col=1:length(dataArray)-1
-    raw(1:length(dataArray{col}),col) = mat2cell(dataArray{col}, ones(length(dataArray{col}), 1));
+    % raw(1:length(dataArray{col}),col) = mat2cell(dataArray{col}, ones(length(dataArray{col}), 1)); % Enable %
 end
 numericData = NaN(size(dataArray{1},1),size(dataArray,2));
 
