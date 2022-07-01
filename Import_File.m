@@ -1,4 +1,4 @@
-%% Import data from text file.
+%- Import data from text file.
 % Script for importing data from the following text file:
 %
 %    C:\Users\....
@@ -6,16 +6,16 @@
 % To extend the code to different selected data or a different text file,
 % generate a function instead of a script.
 
-%% Initialize variables.
+%- Initialize variables.
 filename = 'E:\Archivos\Ejemplo.csv';
 delimiter = ';';
 startRow = 8;
 
-%% Read columns of data as text:
+%- Read columns of data as text:
 % For more information, see the TEXTSCAN documentation.
 formatSpec = '%s%s%s%s%s%[^\n\r]';
 
-%% Open the text file.
+%- Open the text file.
 fileID = fopen(filename,'r');
 
 %% Read columns of data according to the format.
@@ -24,10 +24,10 @@ fileID = fopen(filename,'r');
 % from the Import Tool.
 dataArray = textscan(fileID, formatSpec, 'Delimiter', delimiter, 'TextType', 'string', 'HeaderLines' ,startRow-1, 'ReturnOnError', false, 'EndOfLine', '\r\n');
 
-%% Close the text file.
+%- Close the text file.
 fclose(fileID);
 
-%% Convert the contents of columns containing numeric text to numbers.
+%- Convert the contents of columns containing numeric text to numbers.
 % Replace non-numeric text with NaN.
 raw = repmat({''},length(dataArray{1}),length(dataArray)-1);
 for col=1:length(dataArray)-1
@@ -86,16 +86,16 @@ end
 
 dates = dates(:,1);
 
-%% Split data into numeric and string columns.
+%- Split data into numeric and string columns.
 rawNumericColumns = raw(:, [2,3,4]);
 rawStringColumns = string(raw(:, 5));
 
 
-%% Replace non-numeric cells with NaN
+%- Replace non-numeric cells with NaN
 R = cellfun(@(x) ~isnumeric(x) && ~islogical(x),rawNumericColumns); % Find non-numeric cells
 rawNumericColumns(R) = {NaN}; % Replace non-numeric cells
 
-%% Create output variable
+%- Create output variable
 t2 = table;
 t2.Fecha = dates{:, 1};
 t2.Horas = cell2mat(rawNumericColumns(:, 1));
@@ -108,7 +108,7 @@ t2.Calidad = rawStringColumns(:, 1);
 
 % Ejemplo.Dia=datenum(Ejemplo.Dia);
 
-%% Clear temporary variables
+%- Clear temporary variables
 clearvars filename delimiter startRow formatSpec fileID dataArray ans raw col numericData rawData row regexstr result numbers invalidThousandsSeparator thousandsRegExp dates blankDates anyBlankDates invalidDates anyInvalidDates rawNumericColumns rawStringColumns R;
 
 t2.Potencia=t2.Potencia/1000;
