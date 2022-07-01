@@ -61,7 +61,7 @@ for col=[2,3,4]
                 numbers = strrep(numbers, '.', '');
                 numbers = strrep(numbers, ',', '.');
                 numbers = textscan(char(numbers), '%f');
-                numericData(row, col) = numbers{1};
+                %numericData(row, col) = numbers{1}; % enable %
                 raw{row, col} = numbers{1};
             end
         catch
@@ -77,7 +77,7 @@ try
 catch
     try
         % Handle dates surrounded by quotes
-        dataArray{1} = cellfun(@(x) x(2:end-1), dataArray{1}, 'UniformOutput', false);
+        %dataArray{1} = cellfun(@(x) x(2:end-1), dataArray{1}, 'UniformOutput', false); % enable %
         dates{1} = datetime(dataArray{1}, 'Format', 'dd/MM/yyyy', 'InputFormat', 'dd/MM/yyyy');
     catch
         dates{1} = repmat(datetime([NaN NaN NaN]), size(dataArray{1}));
@@ -92,7 +92,7 @@ rawStringColumns = string(raw(:, 5));
 
 
 %- Replace non-numeric cells with NaN
-R = cellfun(@(x) ~isnumeric(x) && ~islogical(x),rawNumericColumns); % Find non-numeric cells
+%R = cellfun(@(x) ~isnumeric(x) && ~islogical(x),rawNumericColumns); % Find non-numeric cells % enable %
 rawNumericColumns(R) = {NaN}; % Replace non-numeric cells
 
 %- Create output variable
