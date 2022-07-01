@@ -20,7 +20,7 @@
 % individualente, marcando sus mínimos, es decir, cual sería la potencia
 % contratada ideal teniendo en cuenta cada periodo por separado
 
-%% Potencias óptimas individuales
+%- Potencias óptimas individuales
 for i=1:6
     minimo(i)=find(vec_coste(i,:)==min(vec_coste(i,:)));
 end
