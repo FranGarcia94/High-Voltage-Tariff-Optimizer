@@ -1,4 +1,6 @@
 # High-Voltage-Tariff-Optimizer
+![Matlab](https://img.shields.io/badge/MATLAB-blueviolet?style=for-the-badge)
+
 High Voltage Tariff Optimizer using a combinatorial algorithm[^1].
 
 In this case, the high voltage tariffs of Spain have been studied, where there are 6 possible powers to be contracted. The calculation of the power term is apparently simple.
